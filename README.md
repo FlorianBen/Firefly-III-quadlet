@@ -1,6 +1,6 @@
 # Firefly III Quadlet
 
-This repository includes the different ressources to run a Firefly III instance in a container using Podman Quadlet.
+This repository includes the different resources to run a Firefly III instance in a container using Podman Quadlet.
 The Firefly III instance and its PostgreSQL database is running within a Pod.
 
 ## How to use
@@ -13,7 +13,7 @@ In the case of Firefly 3 secrets need to be defined:
 - fireflyiii-db: PostgreSQL database password
 - fireflyiii-cron-token: Token for cron jobs 
 
-Create secret with `podman secret create fireflyiii-SECRETTOSET SECRETVALUE/FILEWITHSECRETVALUE`. Repalce `SECRETTOSET` and `SECRETVALUE/FILEWITHSECRETVALUE` with 
+Create secret with `podman secret create fireflyiii-SECRETTOSET SECRETVALUE/FILEWITHSECRETVALUE`. Replace `SECRETTOSET` and `SECRETVALUE/FILEWITHSECRETVALUE` for each secret mentioned above.
 
 Then, check quadlet file in the quadlet folder. Check that port, volume and environment are compatible with the current setup. From this folder copy all quadlet file to `~/.config/containers/systemd/`.
 One can use the `../install_quadlet` script to perform these actions. If the script is run by `sudo` it will install as rootfull containers.
