@@ -1,0 +1,15 @@
+[Unit]
+Description=Firefly III cron job
+Requires=fireflyiii.container
+After=fireflyiii.container
+
+[Container]
+ContainerName=fireflyiii-cron
+Image=docker.io/library/alpine:latest
+AutoUpdate=registry
+Secret=fireflyiii-cron-token,type=env,target=STATIC_CRON_TOKEN
+Exec=sh -c "echo \"0 3 * * * wget -qO- http://127.0.0.1:8080/api/v1/cron/$$STATIC_CRON_TOKEN;echo\" | crontab - && crond -f -L /dev/stdout"
+Pod=fireflyiii.pod
+
+[Install]
+WantedBy=default.target

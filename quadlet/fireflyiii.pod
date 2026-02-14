@@ -1,0 +1,6 @@
+[Unit]
+Description=Firefly III Pod
+
+[Pod]
+PodName=fireflyiii
+PublishPort=7777:8080

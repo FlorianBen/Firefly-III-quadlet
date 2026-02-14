@@ -1,0 +1,16 @@
+[Unit]
+Description=PostgreSQL for Firefly III instance
+
+[Container]
+ContainerName=fireflyiii-db
+Image=docker.io/library/postgres:18.2-alpine
+AutoUpdate=registry
+Secret=fireflyiii-db-secret
+Environment=POSTGRES_USER=fireflyiii-db-user
+Environment=POSTGRES_DB=fireflyiii-db
+Environment=POSTGRES_PASSWORD_FILE=/run/secrets/fireflyiii-db-secret
+Volume=fireflyiii-db.volume:/var/lib/postgresql
+Pod=fireflyiii.pod
+
+[Install]
+WantedBy=default.target

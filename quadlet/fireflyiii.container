@@ -1,0 +1,23 @@
+[Unit]
+Description=Firefly III instance
+Requires=fireflyiii-db.container
+After=fireflyiii-db.container
+
+[Container]
+ContainerName=fireflyiii
+Image=docker.io/fireflyiii/core:latest
+AutoUpdate=registry
+Secret=fireflyiii-app-key,type=env,target=APP_KEY
+#Environment=APP_KEY=2TDWrzrwHkicHiFkc7OX3u5EUTOGDuHY
+Environment=DB_HOST=127.0.0.1
+Environment=DB_PORT=5432
+Environment=DB_CONNECTION=pgsql
+Environment=DB_DATABASE=fireflyiii-db
+Environment=DB_USERNAME=fireflyiii-db-user
+Secret=fireflyiii-db-secret,type=env,target=DB_PASSWORD
+Secret=fireflyiii-cron-token,type=env,target=STATIC_CRON_TOKEN
+Volume=fireflyiii-upload.volume:/var/www/html/data:Z
+Pod=fireflyiii.pod
+
+[Install]
+WantedBy=default.target
