@@ -21,3 +21,5 @@ One can use the `../install_quadlet` script to perform these actions. If the scr
 Finally run the systemd command to start the Pod `systemctl --user start fireflyiii-pod` and check that Firefly III application and database are correctly running `systemctl --user status fireflyiii` and `systemctl --user status fireflyiii-db`.
 
 If everything goes well, then Firefly III can be accessed on [http://localhost:7777/](http://localhost:7777/).
+
+One can modify the Pod file to set the network (host, port, etc) and then adjust the reverse proxy configuration.
