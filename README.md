@@ -9,8 +9,8 @@ Before starting, take time to read carefully the [Firefly III Documentation](htt
 
 The first step is to check and update the secret or environment.
 In the case of Firefly 3 secrets need to be defined:
-- fireflyiii-api-key: API key
-- fireflyiii-db: PostgreSQL database password
+- fireflyiii-app-key: app key
+- fireflyiii-db-secret: PostgreSQL database password
 - fireflyiii-cron-token: Token for cron jobs 
 
 Create secret with `podman secret create fireflyiii-SECRETTOSET SECRETVALUE/FILEWITHSECRETVALUE`. Replace `SECRETTOSET` and `SECRETVALUE/FILEWITHSECRETVALUE` for each secret mentioned above.
